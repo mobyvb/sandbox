@@ -11,10 +11,31 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
         }
     </style>
+    <script>
+        async function getNumber() {
+            const response = await fetch('/api/numbers');
+            const number = await response.text();
+            document.getElementById('numberDisplay').innerHTML = number;
+        }
+    </script>
 </head>
 <body>
-    <p>"All we have to decide is what to do with the time that is given to us." - Gandalf</p>
+    <div class="content">
+        <p>"All we have to decide is what to do with the time that is given to us." - Gandalf</p>
+        <button onclick="getNumber()">Get random number</button>
+        <p id="numberDisplay"></p>
+    </div>
 </body>
 </html>
