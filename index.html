@@ -9,6 +9,7 @@
             height: 100%;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
@@ -18,12 +19,31 @@
             background-color: white;
             padding: 20px;
             border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 24px;
+            padding: 10px 20px;
+        }
+        #randomNumber {
+            font-size: 24px;
+            margin: 20px 0;
         }
     </style>
+    <script>
+        async function fetchRandomNumber() {
+            const response = await fetch('/api/number');
+            const randomNumber = await response.text();
+            document.getElementById('randomNumber').innerHTML = randomNumber;
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>"All we have to decide is what to do with the time that is given to us." - Gandalf</h1>
+        <h2>"There's some good in this world, Mr. Frodo, and it's worth fighting for." - Sam Gamgee</h2>
     </header>
+    <button onclick="fetchRandomNumber()">Get Random Number</button>
+    <div id="randomNumber"></div>
 </body>
 </html>
