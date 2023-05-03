@@ -1,0 +1,58 @@
+
+    ```
+    <!DOCTYPE html>
+    <html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+        <title>Gandalf and Sam Quotes</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f0f0f0;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 5px;
+            }
+        </style>
+        <script>
+            async function getNumber() {
+                const response = await fetch('/api/numbers');
+                const number = parseInt(await response.text(), 10);
+                document.getElementById('numberDisplay').innerHTML = number;
+
+                if (number % 3 === 0) {
+                    document.body.style.backgroundColor = 'red';
+                } else if (number % 2 === 0) {
+                    document.body.style.backgroundColor = 'green';
+                } else {
+                    document.body.style.backgroundColor = 'white';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class=\"content\">
+            <p>\"All we have to decide is what to do with the time that is given to us.\" - Gandalf</p>
+            <p>\"There's some good in this world, Mr. Frodo, and it's worth fighting for.\" - Sam Gamgee</p>
+            <button onclick=\"getNumber()\">Get random number</button>
+            <p id=\"numberDisplay\"></p>
+        </div>
+        <div class=\"content\">
+            <h2>Introducing the new digital assistant for coding</h2>
+            <p>Have you ever felt like you could use some help while coding? Look no further than our new digital assistant powered by LLMs! Designed with developers in mind, our assistant can suggest code snippets and quickly find solutions to your coding challenges. Try it out today!</p>
+        </div>
+    </body>
+    </html>
+    ```
+
