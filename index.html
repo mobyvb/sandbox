@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Numbers</title>
+    </head>
+    <body>
+        <h1>About Numbers</h1>
+        <p>This page is about numbers.</p>
+        <input type="number" id="numberInput">
+        <button onclick="submitNumber()">Submit Number</button>
+        <button onclick="getNumber()">Get Number</button>
+        <script>
+            function submitNumber() {
+                const number = document.getElementById('numberInput').value;
+                fetch('/number', {
+                    method: 'POST',
+                    body: JSON.stringify({ number }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            }
+            function getNumber() {
+                fetch('/number')
+                    .then(response => response.json())
+                    .then(responseData => {
+                        alert(responseData.number);
+                    });
+            }
+        </script>
+    </body>
+    </html>
