@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F2F3F4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #E8E8E8;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <button id="btn">Get Random Number!</button>
+        <p id="random-number"></p>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener('click', function() {
+            fetch('/get-number')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('random-number').innerHTML = data.number;
+                });
+        });
+    </script>
+</body>
+</html>
